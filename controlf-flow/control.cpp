@@ -1,4 +1,9 @@
 #include <iostream>
+#include <cstdlib>
+void cleanup()
+{
+
+}
 int main() 
 {
     // c++ supports Goto, break, continue, do-while, std::exit()
@@ -55,4 +60,10 @@ int main()
         default:
             break;
     }
+    // exiting program early
+    // note this requires <cstdlib>
+    // note, this does not clean up local variables in the stack, so you need to do manual cleaning 
+    // we can write the cleaning function and register it with std::atexit(), so that the clean up function will be automatically be called 
+    std::atexit(cleanup);
+    std::exit(0);
 }
