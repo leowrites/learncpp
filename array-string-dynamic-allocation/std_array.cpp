@@ -18,7 +18,7 @@ void takeInArray(std::array<int, 3>& arr)
 
 // to take in array of dynamic size with templates
 template <typename T, std::size_t size>
-void printArray(std::array<T, size>& arr)
+void printArray(const std::array<T, size>& arr)
 {
     for (auto el: arr)
         std::cout << el << ' ';
@@ -35,6 +35,7 @@ int main()
     {
         std::cout << arr[i];
     }
+    printArray<int, arr.size()>(arr);
 }
 
 struct House
@@ -44,7 +45,8 @@ struct House
 };
 // initializing array with structs
 std::array<House, 3> houses{
-    {   // initialize a C-style array first
+    {   // initialize a C-style array first to initialize the structs, then initialize
+    // the array
         { 1, 2 },
         { 3, 4 }
     }
