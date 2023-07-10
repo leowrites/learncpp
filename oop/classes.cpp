@@ -112,7 +112,10 @@ public:
 int main()
 {
     std::array arr{ 1, 2 };
+    // value initialization
     DateClass today{};
+    // default initialization, 
+    DateClass tomorrow;
     today.setDate(6, 21, 2023);
     today.print();
     DateClass yesterday { 1, 2, 3 };
