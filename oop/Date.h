@@ -33,12 +33,24 @@ public:
     static inline int s_num{ 4 };
 
     static int getValue() { return s_private; };
+    Date();
 
     Date(int year, int month, int day);
+    // assignment operator
+    Date& operator=(const Date& date);
+
     void SetDate(int year, int month, int day);
     int getYear() { return m_year; }
     int getMonth() { return m_month; }
     int getDay()  { return m_day; }
 };
+
+Date& Date::operator= (const Date& date)
+{
+    m_day = date.m_day;
+    m_month = date.m_month;
+    m_year = date.m_year;
+}
+
 
 #endif
